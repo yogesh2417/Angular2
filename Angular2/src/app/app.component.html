@@ -1,0 +1,59 @@
+﻿
+<div>
+    <h1>
+        {{pageHeader}}
+    </h1>
+    <h1>
+        {{10+20}}
+    </h1>
+    <h1>
+        {{'Page Header = ' + pageHeader}}
+    </h1>
+    <h1>
+        {{pageHeader ? pageHeader : 'No Header'}}
+    </h1>
+    <h1>
+        {{getFullName()}} these are the examples of interpolation.
+    </h1>
+    <br />
+    <button [disabled]="isDisabled">Click Me Property Binding</button> // this is the example of property binding. [] is must to declare property
+    <div>
+        <button bind-disabled="isDisabled">Click Me canonical property binding</button> // this is the example of canonical property binding.Use 'bind-' as prefix like bind-disabled
+    </div>
+    <div>
+        <button disabled="{{isDisabled}}">Click Me Interpolation</button> // interpolation is not working correctly with non string values.
+    </div>
+    <br />
+    <div [innerHtml]="maliciousString"></div> //Above Malicious string with propery binding remove script tag from malicious string.
+    <div>{{maliciousString}}</div> //Above Malicious string with interpolation santize it as a normal string.
+
+    <br />
+    <div>//property bind and interpolation are not binding html properties. it actually changes DOM elements.</div>
+
+    <div>// Angular dont bind html attribute. it binds DOM properties. if needs to modifiy Html attributes then use 'attr.##attributeName##' like attr.colspan</div>
+    <br />
+    <div>
+        <button [ngStyle]="Styles()">My Button(with multiple style properties using [ngStyle]) </button> // Same for other properties as well like adding multiple classes in one control use [ngClass] property
+    </div>
+    <br />
+    <div>// for property binding use [] and for event binding use () or use 'on-' like on-click </div>
+    <div>
+        <button (click)="onClick()">(click) event</button>
+    </div>
+    <br />
+    <div>
+        Name:<input [value]="name" (input)="name=$event.target.value" />
+        <br />
+        You Entered : {{name}} // this two way binding is achieved by property and event binding. we replace this with [(ngModel)] and to use this import FormsModules
+    </div>
+    <br />
+    <div>
+        Name:<input [(ngModel)]="name" />
+        <br />
+        You Entered : {{name}} // this two way binding is achieved by [(ngModel)] and to use this import FormsModules
+    </div>
+    <br />
+    <my-employee></my-employee>
+    <br/>
+    <list-employees></list-employees>
+</div>

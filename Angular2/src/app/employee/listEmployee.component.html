@@ -1,0 +1,40 @@
+﻿<table>
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Index from ngFor
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees;trackBy:trackByEmp;let i=index">
+            <td>{{employee.id}}</td>
+            <td>{{employee.Name}}</td>
+            <td>{{i}}</td>
+        </tr>
+        <tr *ngIf="!employees || employees.length==0">
+            <td colspan="2">No Employees</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<div>
+    <button (click)="getEmployee()">Refresh List</button>
+</div>
+
+
+<br />
+
+<div>
+    // Above is the example of *ngFor directive.Created new component,html and css. imported component class in app.module.ts and added directive in app.module.html
+    <br />
+    // Refresh button is used because ngFor is not good to used for large list without trackBy. it will recreate tr every time the list will update. so use trackBy to avoid recreation of tr everytime.
+    <br />
+    // use i=index to get index in ngFor
+</div>
