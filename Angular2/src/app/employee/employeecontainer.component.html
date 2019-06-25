@@ -3,7 +3,7 @@
    //Below example is of container and nested components.
 </div>
 <div>
-    <employee-count [All]="getTotalEmployeesCount()" [Male]="getTotalMaleEmployeesCount()" [Female]="getTotalFemaleEmployeesCount()"></employee-count>
+    <employee-count [All]="getTotalEmployeesCount()" [Male]="getTotalMaleEmployeesCount()" [Female]="getTotalFemaleEmployeesCount()" (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChange($event)"></employee-count>
     <br />
     // used input property by passing values in directives through property binding. used @input component in the child class.
 </div>
@@ -20,15 +20,17 @@
             </th>
             <th>
                 Gender
-            </th>            
+            </th> 
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of employees">
-            <td>{{employee.id | currency:'USD':true:'1.3-3'}}</td>
-            <td>{{employee.Name | uppercase | employeeTitle:employee.Gender}}</td>
-            <td>{{employee.Gender }}</td>
-        </tr>
+        <ng-container *ngFor="let employee of employees;">
+            <tr *ngIf="selectedEmployeeCountRadioButton=='All' || selectedEmployeeCountRadioButton==employee.Gender">
+                <td>{{employee.id | currency:'USD':true:'1.3-3'}}</td>
+                <td>{{employee.Name | uppercase | employeeTitle:employee.Gender}}</td>
+                <td>{{employee.Gender}}</td>
+            </tr>
+        </ng-container>
         <tr *ngIf="!employees || employees.length==0">
             <td colspan="2">No Employees</td>
         </tr>

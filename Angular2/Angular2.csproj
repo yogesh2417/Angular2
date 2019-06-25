@@ -74,6 +74,8 @@
     <Content Include="src\app\employee\employee.component.html" />
     <Content Include="src\app\employee\employeecontainer.component.css" />
     <Content Include="src\app\employee\employeecontainer.component.html" />
+    <Content Include="src\app\employee\employeecount.component.css" />
+    <Content Include="src\app\employee\employeecount.component.html" />
     <Content Include="src\app\employee\listEmployee.component.css" />
     <Content Include="src\app\employee\listEmployee.component.html" />
     <Content Include="src\favicon.ico" />
@@ -106,6 +108,7 @@
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\employee\employee.component.ts" />
     <TypeScriptCompile Include="src\app\employee\employeecontainer.component.ts" />
+    <TypeScriptCompile Include="src\app\employee\employeecount.component.ts" />
     <TypeScriptCompile Include="src\app\employee\employeeTitle.pipe.ts" />
     <TypeScriptCompile Include="src\app\employee\listEmployee.component.ts" />
     <TypeScriptCompile Include="src\main.ts" />

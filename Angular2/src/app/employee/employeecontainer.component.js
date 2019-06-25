@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var EmployeeContainerComponent = /** @class */ (function () {
+var EmployeeContainerComponent = (function () {
     function EmployeeContainerComponent() {
+        this.selectedEmployeeCountRadioButton = 'All';
         this.employees = [
             { id: 1, Name: 'a', Gender: 'Male' },
             { id: 2, Name: 'b', Gender: 'Female' },
@@ -21,6 +21,9 @@ var EmployeeContainerComponent = /** @class */ (function () {
             { id: 6, Name: 'f', Gender: 'Male' },
         ];
     }
+    EmployeeContainerComponent.prototype.onEmployeeCountRadioButtonChange = function (selectedRadioButtonValue) {
+        this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
+    };
     EmployeeContainerComponent.prototype.getTotalEmployeesCount = function () {
         return this.employees.length;
     };
@@ -30,15 +33,15 @@ var EmployeeContainerComponent = /** @class */ (function () {
     EmployeeContainerComponent.prototype.getTotalFemaleEmployeesCount = function () {
         return this.employees.filter(function (x) { return x.Gender === 'Female'; }).length;
     };
-    EmployeeContainerComponent = __decorate([
-        core_1.Component({
-            selector: 'employee-container',
-            templateUrl: 'app/employee/employeecontainer.component.html',
-            styleUrls: ['app/employee/employeecontainer.component.css']
-        }),
-        __metadata("design:paramtypes", [])
-    ], EmployeeContainerComponent);
     return EmployeeContainerComponent;
 }());
+EmployeeContainerComponent = __decorate([
+    core_1.Component({
+        selector: 'employee-container',
+        templateUrl: 'app/employee/employeecontainer.component.html',
+        styleUrls: ['app/employee/employeecontainer.component.css']
+    }),
+    __metadata("design:paramtypes", [])
+], EmployeeContainerComponent);
 exports.EmployeeContainerComponent = EmployeeContainerComponent;
 //# sourceMappingURL=employeecontainer.component.js.map
