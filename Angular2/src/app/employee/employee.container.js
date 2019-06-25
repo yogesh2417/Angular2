@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ListEmployeeComponent = (function () {
-    function ListEmployeeComponent() {
+var EmployeeContainerComponent = /** @class */ (function () {
+    function EmployeeContainerComponent() {
         this.employees = [
             { id: 1, Name: 'a', Gender: 'Male' },
             { id: 2, Name: 'b', Gender: 'Female' },
@@ -19,28 +20,15 @@ var ListEmployeeComponent = (function () {
             { id: 5, Name: 'e', Gender: 'Male' },
         ];
     }
-    ListEmployeeComponent.prototype.getEmployee = function () {
-        this.employees = [
-            { id: 1, Name: 'a', Gender: 'Male' },
-            { id: 2, Name: 'b', Gender: 'Female' },
-            { id: 3, Name: 'c', Gender: 'Male' },
-            { id: 4, Name: 'd', Gender: 'Female' },
-            { id: 5, Name: 'e', Gender: 'Male' },
-            { id: 6, Name: 'f', Gender: 'Female' },
-        ];
-    };
-    ListEmployeeComponent.prototype.trackByEmp = function (index, employee) {
-        return employee.id;
-    };
-    return ListEmployeeComponent;
+    EmployeeContainerComponent = __decorate([
+        core_1.Component({
+            selector: 'list-employees',
+            templateUrl: 'app/employee/listEmployee.component.html',
+            styleUrls: ['app/employee/listEmployee.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], EmployeeContainerComponent);
+    return EmployeeContainerComponent;
 }());
-ListEmployeeComponent = __decorate([
-    core_1.Component({
-        selector: 'list-employees',
-        templateUrl: 'app/employee/listEmployee.component.html',
-        styleUrls: ['app/employee/listEmployee.component.css']
-    }),
-    __metadata("design:paramtypes", [])
-], ListEmployeeComponent);
-exports.ListEmployeeComponent = ListEmployeeComponent;
-//# sourceMappingURL=listEmployee.component.js.map
+exports.EmployeeContainerComponent = EmployeeContainerComponent;
+//# sourceMappingURL=employee.container.js.map

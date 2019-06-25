@@ -1,0 +1,44 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var EmployeeContainerComponent = /** @class */ (function () {
+    function EmployeeContainerComponent() {
+        this.employees = [
+            { id: 1, Name: 'a', Gender: 'Male' },
+            { id: 2, Name: 'b', Gender: 'Female' },
+            { id: 3, Name: 'c', Gender: 'Male' },
+            { id: 4, Name: 'd', Gender: 'Female' },
+            { id: 5, Name: 'e', Gender: 'Male' },
+            { id: 6, Name: 'f', Gender: 'Male' },
+        ];
+    }
+    EmployeeContainerComponent.prototype.getTotalEmployeesCount = function () {
+        return this.employees.length;
+    };
+    EmployeeContainerComponent.prototype.getTotalMaleEmployeesCount = function () {
+        return this.employees.filter(function (x) { return x.Gender === 'Male'; }).length;
+    };
+    EmployeeContainerComponent.prototype.getTotalFemaleEmployeesCount = function () {
+        return this.employees.filter(function (x) { return x.Gender === 'Female'; }).length;
+    };
+    EmployeeContainerComponent = __decorate([
+        core_1.Component({
+            selector: 'employee-container',
+            templateUrl: 'app/employee/employeecontainer.component.html',
+            styleUrls: ['app/employee/employeecontainer.component.css']
+        }),
+        __metadata("design:paramtypes", [])
+    ], EmployeeContainerComponent);
+    return EmployeeContainerComponent;
+}());
+exports.EmployeeContainerComponent = EmployeeContainerComponent;
+//# sourceMappingURL=employeecontainer.component.js.map
