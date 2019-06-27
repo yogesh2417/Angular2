@@ -5,7 +5,8 @@
 <div>
     <employee-count [All]="getTotalEmployeesCount()" [Male]="getTotalMaleEmployeesCount()" [Female]="getTotalFemaleEmployeesCount()" (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChange($event)"></employee-count>
     <br />
-    // used input property by passing values in directives through property binding. used @input component in the child class.
+    // used input property by passing values in directives through property binding. used @input component in the child class. For passing values from Parent to child use @input.
+    // used EventEmitter along with @output in child to pass values from child to parent.
 </div>
 
 

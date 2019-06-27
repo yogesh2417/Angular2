@@ -36,4 +36,6 @@ export class AppComponent{
     };
 
     name: string = "tom";
+
+    enteredString: string;
 }

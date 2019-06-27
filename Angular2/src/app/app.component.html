@@ -58,4 +58,11 @@
     <list-employees></list-employees>
     <br />
     <employee-container></employee-container>
+    <br />
+    <div>
+        // used [(ngModel)] and @Input. Below is the example of ngOnChange hook which gives simpleChanges object with properties of previous value and current value in console.
+        <br />  
+       Enter: <input [(ngModel)]="enteredString" />
+    </div>
+    <simple [simpleInput]="enteredString"></simple>
 </div>
