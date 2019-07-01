@@ -9,18 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var employee_service_1 = require("./employee.service");
 var EmployeeContainerComponent = (function () {
-    function EmployeeContainerComponent() {
+    function EmployeeContainerComponent(_employeeService) {
+        this._employeeService = _employeeService;
+        this.statusMessage = "Please wait.";
         this.selectedEmployeeCountRadioButton = 'All';
-        this.employees = [
-            { id: 1, Name: 'a', Gender: 'Male' },
-            { id: 2, Name: 'b', Gender: 'Female' },
-            { id: 3, Name: 'c', Gender: 'Male' },
-            { id: 4, Name: 'd', Gender: 'Female' },
-            { id: 5, Name: 'e', Gender: 'Male' },
-            { id: 6, Name: 'f', Gender: 'Male' },
-        ];
     }
+    //here ngOnInit hook used to call service.
+    EmployeeContainerComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._employeeService.getEmployees().subscribe(function (EmployeeData) { return _this.employees = EmployeeData; });
+    };
     EmployeeContainerComponent.prototype.onEmployeeCountRadioButtonChange = function (selectedRadioButtonValue) {
         this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
     };
@@ -41,7 +41,7 @@ EmployeeContainerComponent = __decorate([
         templateUrl: 'app/employee/employeecontainer.component.html',
         styleUrls: ['app/employee/employeecontainer.component.css']
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [employee_service_1.EmployeeService])
 ], EmployeeContainerComponent);
 exports.EmployeeContainerComponent = EmployeeContainerComponent;
 //# sourceMappingURL=employeecontainer.component.js.map

@@ -9,25 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var employee_service_1 = require("./employee.service");
 var ListEmployeeComponent = (function () {
-    function ListEmployeeComponent() {
-        this.employees = [
-            { id: 1, Name: 'a', Gender: 'Male' },
-            { id: 2, Name: 'b', Gender: 'Female' },
-            { id: 3, Name: 'c', Gender: 'Male' },
-            { id: 4, Name: 'd', Gender: 'Female' },
-            { id: 5, Name: 'e', Gender: 'Male' },
-        ];
+    /* injected service from constructor but this is not the good approach.
+     * If service calls http requests and takes time to fetch data then it will impact the loading time of the component.
+     * To avoid this use ngOnInit hook to inject service. ngOnInit executes after constructor.
+     * will inject service at ngOnInit hook in employeecontainer.component.ts
+     */
+    function ListEmployeeComponent(_employeeService) {
+        var _this = this;
+        this._employeeService = _employeeService;
+        this._employeeService.getEmployees().subscribe(function (EmployeeData) { return _this.employees = EmployeeData; });
     }
     ListEmployeeComponent.prototype.getEmployee = function () {
-        this.employees = [
-            { id: 1, Name: 'a', Gender: 'Male' },
-            { id: 2, Name: 'b', Gender: 'Female' },
-            { id: 3, Name: 'c', Gender: 'Male' },
-            { id: 4, Name: 'd', Gender: 'Female' },
-            { id: 5, Name: 'e', Gender: 'Male' },
-            { id: 6, Name: 'f', Gender: 'Female' },
-        ];
+        this.employees;
     };
     ListEmployeeComponent.prototype.trackByEmp = function (index, employee) {
         return employee.id;
@@ -38,9 +33,9 @@ ListEmployeeComponent = __decorate([
     core_1.Component({
         selector: 'list-employees',
         templateUrl: 'app/employee/listEmployee.component.html',
-        styleUrls: ['app/employee/listEmployee.component.css']
+        styleUrls: ['app/employee/listEmployee.component.css'],
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [employee_service_1.EmployeeService])
 ], ListEmployeeComponent);
 exports.ListEmployeeComponent = ListEmployeeComponent;
 //# sourceMappingURL=listEmployee.component.js.map

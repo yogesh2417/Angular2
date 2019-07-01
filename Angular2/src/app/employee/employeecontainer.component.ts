@@ -1,5 +1,6 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component , OnInit} from '@angular/core';
 import { IEmployee } from './employee';
+import { EmployeeService} from './employee.service';
 
 @Component({
     selector: 'employee-container',
@@ -9,16 +10,20 @@ import { IEmployee } from './employee';
 
 export class EmployeeContainerComponent {
     employees: IEmployee[];
+    statusMessage: string = "Please wait.";
 
-    constructor() {
-        this.employees = [
-            { id: 1, Name: 'a', Gender: 'Male' },
-            { id: 2, Name: 'b', Gender: 'Female' },
-            { id: 3, Name: 'c', Gender: 'Male' }, 
-            { id: 4, Name: 'd', Gender: 'Female' },
-            { id: 5, Name: 'e', Gender: 'Male' },
-            { id: 6, Name: 'f', Gender: 'Male' },
-        ];
+    constructor(private _employeeService:EmployeeService) {        
+    }
+
+    //here ngOnInit hook used to call service.
+
+    ngOnInit() {
+        this._employeeService.getEmployees().subscribe(
+            EmployeeData => this.employees = EmployeeData,
+            //(error) => {
+            //    this.statusMessage = error
+            //}
+        );
     }
 
     selectedEmployeeCountRadioButton: string = 'All';

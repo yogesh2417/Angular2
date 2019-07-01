@@ -1,33 +1,28 @@
 ﻿import { Component } from '@angular/core';
+import { EmployeeService } from './employee.service';
+import { IEmployee } from './employee';
 
 @Component({
     selector: 'list-employees',
     templateUrl: 'app/employee/listEmployee.component.html',
-    styleUrls: ['app/employee/listEmployee.component.css']
+    styleUrls: ['app/employee/listEmployee.component.css'],
 })
 
 export class ListEmployeeComponent {
-    employees: any[];
+    employees: IEmployee[];
 
-    constructor (){
-    this.employees = [
-        { id: 1, Name: 'a',Gender: 'Male' },
-        { id: 2, Name: 'b',Gender: 'Female' },
-        { id: 3, Name: 'c', Gender: 'Male' },
-        { id: 4, Name: 'd', Gender: 'Female' },
-        { id: 5, Name: 'e', Gender: 'Male' },
-    ];
+    /* injected service from constructor but this is not the good approach.
+     * If service calls http requests and takes time to fetch data then it will impact the loading time of the component. 
+     * To avoid this use ngOnInit hook to inject service. ngOnInit executes after constructor.
+     * will inject service at ngOnInit hook in employeecontainer.component.ts
+     */
+
+    constructor(private _employeeService:EmployeeService){    
+        this._employeeService.getEmployees().subscribe(EmployeeData => this.employees = EmployeeData);
     }
 
     getEmployee(): void {
-        this.employees = [
-            { id: 1, Name: 'a', Gender: 'Male' },
-            { id: 2, Name: 'b', Gender: 'Female' },
-            { id: 3, Name: 'c', Gender: 'Male' },
-            { id: 4, Name: 'd', Gender: 'Female' },
-            { id: 5, Name: 'e', Gender: 'Male' },
-            { id: 6, Name: 'f', Gender: 'Female' },
-        ];
+        this.employees;
     }
 
     trackByEmp(index: number, employee: any): string {
