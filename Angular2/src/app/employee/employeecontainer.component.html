@@ -28,7 +28,7 @@
         <ng-container *ngFor="let employee of employees;">
             <tr *ngIf="selectedEmployeeCountRadioButton=='All' || selectedEmployeeCountRadioButton==employee.Gender">
                 <td>
-                    <a [routerLink]="[/employee,employee.code]">
+                    <a [routerLink]="['/employee',employee.id]">
                         {{employee.id | currency:'USD':true:'1.3-3'}}
                     </a>
                 </td>

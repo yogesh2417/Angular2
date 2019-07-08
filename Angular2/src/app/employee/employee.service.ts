@@ -29,6 +29,13 @@ export class EmployeeService {
             //.catch(this.handleError);                     // exception handling.
     }
 
+    getEmployeeById(code:number): Observable<IEmployee> {
+        return this._http.get("http://localhost:62288/api/employee/" + code)
+            .map((response: Response) => <IEmployee>response.json()) //map is used to cast Observable<Response> to Observable<IEmployee[]>
+        //.catch(this.handleError);                     // exception handling.
+    }
+
+
     //private handleError(error: Response) {
     //    console.error(error);
     //    return Observable.throw(error.json().error());

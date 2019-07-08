@@ -31,6 +31,11 @@ var EmployeeService = (function () {
             .map(function (response) { return response.json(); }); //map is used to cast Observable<Response> to Observable<IEmployee[]>
         //.catch(this.handleError);                     // exception handling.
     };
+    EmployeeService.prototype.getEmployeeById = function (code) {
+        return this._http.get("http://localhost:62288/api/employee/" + code)
+            .map(function (response) { return response.json(); }); //map is used to cast Observable<Response> to Observable<IEmployee[]>
+        //.catch(this.handleError);                     // exception handling.
+    };
     return EmployeeService;
 }());
 EmployeeService = __decorate([

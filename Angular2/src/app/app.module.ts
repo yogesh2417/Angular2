@@ -18,7 +18,7 @@ import { PageNotFoundComponent } from './Others/pageNotFound.component';
 const appRoutes: Routes=[                                                    // these routes should be in specific order. more commonly used should be written on top.
     { path: 'home', component: HomeComponent },                              //Generic should come at the bottom otherwise it will always run for other components too.                   
     { path: 'employee', component: EmployeeContainerComponent },
-    { path: 'employee/:id', component: EmployeeContainerComponent},
+    { path: 'employee/:id', component: EmployeeComponent},
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     {path:'**',component:PageNotFoundComponent}
 
