@@ -12,14 +12,18 @@ var core_1 = require("@angular/core");
 var employee_service_1 = require("./employee.service");
 var router_1 = require("@angular/router");
 var EmployeeComponent = (function () {
-    function EmployeeComponent(_employeeService, _activatedRoute) {
+    function EmployeeComponent(_employeeService, _activatedRoute, _router) {
         this._employeeService = _employeeService;
         this._activatedRoute = _activatedRoute;
+        this._router = _router;
     }
     EmployeeComponent.prototype.ngOnInit = function () {
         var _this = this;
         var id = this._activatedRoute.snapshot.params['id'];
         this._employeeService.getEmployeeById(id).subscribe(function (employeeData) { return _this.employee = employeeData; });
+    };
+    EmployeeComponent.prototype.OnBtnClick = function () {
+        this._router.navigate(['/employee']);
     };
     return EmployeeComponent;
 }());
@@ -29,7 +33,7 @@ EmployeeComponent = __decorate([
         templateUrl: 'app/employee/employee.component.html',
         styleUrls: ['app/employee/employee.component.css']
     }),
-    __metadata("design:paramtypes", [employee_service_1.EmployeeService, router_1.ActivatedRoute])
+    __metadata("design:paramtypes", [employee_service_1.EmployeeService, router_1.ActivatedRoute, router_1.Router])
 ], EmployeeComponent);
 exports.EmployeeComponent = EmployeeComponent;
 //# sourceMappingURL=employee.component.js.map

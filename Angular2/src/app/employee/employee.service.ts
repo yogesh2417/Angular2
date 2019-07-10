@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/toPromise';
+
 
 @Injectable()
 
@@ -31,14 +33,41 @@ export class EmployeeService {
 
     getEmployeeById(code:number): Observable<IEmployee> {
         return this._http.get("http://localhost:62288/api/employee/" + code)
-            .map((response: Response) => <IEmployee>response.json()) //map is used to cast Observable<Response> to Observable<IEmployee[]>
-        //.catch(this.handleError);                     // exception handling.
+            .map((response: Response) => <IEmployee>response.json())                          //.map used to cast observable response to IEmployee type               
+            .catch(this.handleError);                     
     }
 
+        handleError(error: Response) {
+        console.error(error);
+            return Observable.throw(error.json().error());
+    } 
 
-    //private handleError(error: Response) {
+    /*
+     * In Observable use .subscribe to get data 
+     * 
+     * In Promise use .then to get data
+     * 
+     * /
+
+
+
+
+
+    //getEmployeeById(code: number): Promise<IEmployee> {
+    //    return this._http.get("http://localhost:62288/api/employee/" + code)
+    //        .map((response: Response) => <IEmployee>response.json())
+    //        .toPromise()
+    //        .catch(this.handlePromiseError);
+        
+            
+    //}
+
+    //handlePromiseError(error: Response) {
     //    console.error(error);
-    //    return Observable.throw(error.json().error());
+    //    throw(error);
     //} 
+
+
+
 
 }

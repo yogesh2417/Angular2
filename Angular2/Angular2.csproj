@@ -269,6 +269,7 @@
     <TypeScriptCompile Include="src\app\Home\home.component.ts" />
     <TypeScriptCompile Include="src\app\Others\pageNotFound.component.ts" />
     <TypeScriptCompile Include="src\app\Others\simple.component.ts" />
+    <TypeScriptCompile Include="src\app\test.module.ts" />
     <TypeScriptCompile Include="src\main.ts" />
   </ItemGroup>
   <ItemGroup>

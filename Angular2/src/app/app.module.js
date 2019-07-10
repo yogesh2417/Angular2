@@ -10,6 +10,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
+var test_module_1 = require("./test.module");
 var app_component_1 = require("./app.component");
 var employee_component_1 = require("./employee/employee.component");
 var listEmployee_component_1 = require("./employee/listEmployee.component");
@@ -35,7 +36,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes, { useHash: true })],
+        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes, { useHash: true }), test_module_1.TestModule],
         declarations: [app_component_1.AppComponent, employee_component_1.EmployeeComponent, listEmployee_component_1.ListEmployeeComponent, employeeTitle_pipe_1.EmployeeTitlePipe, employeecontainer_component_1.EmployeeContainerComponent, employeecount_component_1.EmployeeCountComponent, simple_component_1.SimpleComponent, home_component_1.HomeComponent,
             pageNotFound_component_1.PageNotFoundComponent],
         bootstrap: [app_component_1.AppComponent],

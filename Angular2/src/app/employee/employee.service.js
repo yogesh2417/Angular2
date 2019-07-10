@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
+var rxjs_1 = require("rxjs");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
 require("rxjs/add/observable/throw");
+require("rxjs/add/operator/toPromise");
 var EmployeeService = (function () {
     //getEmployees(): IEmployee[]{
     //    return[
@@ -33,8 +35,12 @@ var EmployeeService = (function () {
     };
     EmployeeService.prototype.getEmployeeById = function (code) {
         return this._http.get("http://localhost:62288/api/employee/" + code)
-            .map(function (response) { return response.json(); }); //map is used to cast Observable<Response> to Observable<IEmployee[]>
-        //.catch(this.handleError);                     // exception handling.
+            .map(function (response) { return response.json(); }) //.map used to cast observable response to IEmployee type               
+            .catch(this.handleError);
+    };
+    EmployeeService.prototype.handleError = function (error) {
+        console.error(error);
+        return rxjs_1.Observable.throw(error.json().error());
     };
     return EmployeeService;
 }());
@@ -43,4 +49,33 @@ EmployeeService = __decorate([
     __metadata("design:paramtypes", [http_1.Http])
 ], EmployeeService);
 exports.EmployeeService = EmployeeService;
+/*
+ * In Observable use .subscribe to get data
+ *
+ * In Promise use .then to get data
+ *
+ * /
+
+
+
+
+
+//getEmployeeById(code: number): Promise<IEmployee> {
+//    return this._http.get("http://localhost:62288/api/employee/" + code)
+//        .map((response: Response) => <IEmployee>response.json())
+//        .toPromise()
+//        .catch(this.handlePromiseError);
+    
+        
+//}
+
+//handlePromiseError(error: Response) {
+//    console.error(error);
+//    throw(error);
+//}
+
+
+
+
+} 
 //# sourceMappingURL=employee.service.js.map
