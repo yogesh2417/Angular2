@@ -20,6 +20,7 @@ var simple_component_1 = require("./Others/simple.component");
 var employee_service_1 = require("./employee/employee.service");
 var home_component_1 = require("./Home/home.component");
 var pageNotFound_component_1 = require("./Others/pageNotFound.component");
+var userPreferences_service_1 = require("./employee/userPreferences.service");
 var appRoutes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'employee', component: employeecontainer_component_1.EmployeeContainerComponent },
@@ -38,7 +39,7 @@ AppModule = __decorate([
         declarations: [app_component_1.AppComponent, employee_component_1.EmployeeComponent, listEmployee_component_1.ListEmployeeComponent, employeeTitle_pipe_1.EmployeeTitlePipe, employeecontainer_component_1.EmployeeContainerComponent, employeecount_component_1.EmployeeCountComponent, simple_component_1.SimpleComponent, home_component_1.HomeComponent,
             pageNotFound_component_1.PageNotFoundComponent],
         bootstrap: [app_component_1.AppComponent],
-        providers: [employee_service_1.EmployeeService]
+        providers: [employee_service_1.EmployeeService, userPreferences_service_1.UserPreferenceService]
     })
 ], AppModule);
 exports.AppModule = AppModule;

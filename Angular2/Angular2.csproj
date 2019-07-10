@@ -265,6 +265,7 @@
     <TypeScriptCompile Include="src\app\employee\employeecount.component.ts" />
     <TypeScriptCompile Include="src\app\employee\employeeTitle.pipe.ts" />
     <TypeScriptCompile Include="src\app\employee\listEmployee.component.ts" />
+    <TypeScriptCompile Include="src\app\employee\userPreferences.service.ts" />
     <TypeScriptCompile Include="src\app\Home\home.component.ts" />
     <TypeScriptCompile Include="src\app\Others\pageNotFound.component.ts" />
     <TypeScriptCompile Include="src\app\Others\simple.component.ts" />

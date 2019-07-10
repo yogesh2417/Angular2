@@ -8,14 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var employee_service_1 = require("./employee.service");
-var EmployeeContainerComponent = (function () {
-    function EmployeeContainerComponent(_employeeService) {
+var userPreferences_service_1 = require("./userPreferences.service");
+var EmployeeContainerComponent = /** @class */ (function () {
+    function EmployeeContainerComponent(_employeeService, _userPreference) {
         this._employeeService = _employeeService;
+        this._userPreference = _userPreference;
         this.statusMessage = "Please wait.";
         this.selectedEmployeeCountRadioButton = 'All';
     }
+    Object.defineProperty(EmployeeContainerComponent.prototype, "color", {
+        get: function () {
+            return this._userPreference.colorPreference;
+        },
+        set: function (value) {
+            this._userPreference.colorPreference = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     //here ngOnInit hook used to call service.
     EmployeeContainerComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -33,15 +46,15 @@ var EmployeeContainerComponent = (function () {
     EmployeeContainerComponent.prototype.getTotalFemaleEmployeesCount = function () {
         return this.employees.filter(function (x) { return x.Gender === 'Female'; }).length;
     };
+    EmployeeContainerComponent = __decorate([
+        core_1.Component({
+            selector: 'employee-container',
+            templateUrl: 'app/employee/employeecontainer.component.html',
+            styleUrls: ['app/employee/employeecontainer.component.css']
+        }),
+        __metadata("design:paramtypes", [employee_service_1.EmployeeService, userPreferences_service_1.UserPreferenceService])
+    ], EmployeeContainerComponent);
     return EmployeeContainerComponent;
 }());
-EmployeeContainerComponent = __decorate([
-    core_1.Component({
-        selector: 'employee-container',
-        templateUrl: 'app/employee/employeecontainer.component.html',
-        styleUrls: ['app/employee/employeecontainer.component.css']
-    }),
-    __metadata("design:paramtypes", [employee_service_1.EmployeeService])
-], EmployeeContainerComponent);
 exports.EmployeeContainerComponent = EmployeeContainerComponent;
 //# sourceMappingURL=employeecontainer.component.js.map

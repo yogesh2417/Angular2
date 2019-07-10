@@ -1,6 +1,7 @@
 ﻿import { Component , OnInit} from '@angular/core';
 import { IEmployee } from './employee';
 import { EmployeeService} from './employee.service';
+import { UserPreferenceService } from './userPreferences.service';
 
 @Component({
     selector: 'employee-container',
@@ -12,8 +13,17 @@ export class EmployeeContainerComponent {
     employees: IEmployee[];
     statusMessage: string = "Please wait.";
 
-    constructor(private _employeeService:EmployeeService) {        
+    constructor(private _employeeService:EmployeeService,private _userPreference:UserPreferenceService ) {        
     }
+
+    get color(): string {
+        return this._userPreference.colorPreference;
+    }
+
+    set color(value: string) {
+        this._userPreference.colorPreference = value;
+    }
+
 
     //here ngOnInit hook used to call service.
 
