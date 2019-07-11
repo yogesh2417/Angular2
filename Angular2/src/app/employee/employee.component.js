@@ -8,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var employee_service_1 = require("./employee.service");
 var router_1 = require("@angular/router");
-var EmployeeComponent = (function () {
+var EmployeeComponent = /** @class */ (function () {
     function EmployeeComponent(_employeeService, _activatedRoute, _router) {
         this._employeeService = _employeeService;
         this._activatedRoute = _activatedRoute;
@@ -25,15 +26,15 @@ var EmployeeComponent = (function () {
     EmployeeComponent.prototype.OnBtnClick = function () {
         this._router.navigate(['/employee']);
     };
+    EmployeeComponent = __decorate([
+        core_1.Component({
+            selector: 'my-employee',
+            templateUrl: 'app/employee/employee.component.html',
+            styleUrls: ['app/employee/employee.component.css']
+        }),
+        __metadata("design:paramtypes", [employee_service_1.EmployeeService, router_1.ActivatedRoute, router_1.Router])
+    ], EmployeeComponent);
     return EmployeeComponent;
 }());
-EmployeeComponent = __decorate([
-    core_1.Component({
-        selector: 'my-employee',
-        templateUrl: 'app/employee/employee.component.html',
-        styleUrls: ['app/employee/employee.component.css']
-    }),
-    __metadata("design:paramtypes", [employee_service_1.EmployeeService, router_1.ActivatedRoute, router_1.Router])
-], EmployeeComponent);
 exports.EmployeeComponent = EmployeeComponent;
 //# sourceMappingURL=employee.component.js.map

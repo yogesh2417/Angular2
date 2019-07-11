@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var userPreferences_service_1 = require("../employee/userPreferences.service");
-var HomeComponent = (function () {
+var HomeComponent = /** @class */ (function () {
     function HomeComponent(_userPreference) {
         this._userPreference = _userPreference;
     }
@@ -24,13 +25,13 @@ var HomeComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    HomeComponent = __decorate([
+        core_1.Component({
+            template: "<h1>Home Component</h1>\n               <br/>\n                Color Preference : \n                <input type='text' [(ngModel)]='color' [style.background]='color'/>"
+        }),
+        __metadata("design:paramtypes", [userPreferences_service_1.UserPreferenceService])
+    ], HomeComponent);
     return HomeComponent;
 }());
-HomeComponent = __decorate([
-    core_1.Component({
-        template: "<h1>Home Component</h1>\n               <br/>\n                Color Preference : \n                <input type='text' [(ngModel)]='color' [style.background]='color'/>"
-    }),
-    __metadata("design:paramtypes", [userPreferences_service_1.UserPreferenceService])
-], HomeComponent);
 exports.HomeComponent = HomeComponent;
 //# sourceMappingURL=home.component.js.map

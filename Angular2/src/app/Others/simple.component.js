@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var SimpleComponent = (function () {
+var SimpleComponent = /** @class */ (function () {
     function SimpleComponent() {
     }
     SimpleComponent.prototype.ngOnChanges = function (changes) {
@@ -21,17 +22,17 @@ var SimpleComponent = (function () {
             console.log(propertyName + ": Previous Value = " + previous + " , Current Value =" + current + " ");
         }
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], SimpleComponent.prototype, "simpleInput", void 0);
+    SimpleComponent = __decorate([
+        core_1.Component({
+            selector: 'simple',
+            template: 'You have entered : {{simpleInput}}'
+        })
+    ], SimpleComponent);
     return SimpleComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], SimpleComponent.prototype, "simpleInput", void 0);
-SimpleComponent = __decorate([
-    core_1.Component({
-        selector: 'simple',
-        template: 'You have entered : {{simpleInput}}'
-    })
-], SimpleComponent);
 exports.SimpleComponent = SimpleComponent;
 //# sourceMappingURL=simple.component.js.map

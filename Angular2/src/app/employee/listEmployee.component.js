@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var employee_service_1 = require("./employee.service");
-var ListEmployeeComponent = (function () {
+var ListEmployeeComponent = /** @class */ (function () {
     /* injected service from constructor but this is not the good approach.
      * If service calls http requests and takes time to fetch data then it will impact the loading time of the component.
      * To avoid this use ngOnInit hook to inject service. ngOnInit executes after constructor.
@@ -27,15 +28,15 @@ var ListEmployeeComponent = (function () {
     ListEmployeeComponent.prototype.trackByEmp = function (index, employee) {
         return employee.id;
     };
+    ListEmployeeComponent = __decorate([
+        core_1.Component({
+            selector: 'list-employees',
+            templateUrl: 'app/employee/listEmployee.component.html',
+            styleUrls: ['app/employee/listEmployee.component.css'],
+        }),
+        __metadata("design:paramtypes", [employee_service_1.EmployeeService])
+    ], ListEmployeeComponent);
     return ListEmployeeComponent;
 }());
-ListEmployeeComponent = __decorate([
-    core_1.Component({
-        selector: 'list-employees',
-        templateUrl: 'app/employee/listEmployee.component.html',
-        styleUrls: ['app/employee/listEmployee.component.css'],
-    }),
-    __metadata("design:paramtypes", [employee_service_1.EmployeeService])
-], ListEmployeeComponent);
 exports.ListEmployeeComponent = ListEmployeeComponent;
 //# sourceMappingURL=listEmployee.component.js.map

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var rxjs_1 = require("rxjs");
@@ -15,7 +16,7 @@ require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
 require("rxjs/add/observable/throw");
 require("rxjs/add/operator/toPromise");
-var EmployeeService = (function () {
+var EmployeeService = /** @class */ (function () {
     //getEmployees(): IEmployee[]{
     //    return[
     //        { id: 1, Name: 'a', Gender: 'Male' },
@@ -42,40 +43,11 @@ var EmployeeService = (function () {
         console.error(error);
         return rxjs_1.Observable.throw(error.json().error());
     };
+    EmployeeService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], EmployeeService);
     return EmployeeService;
 }());
-EmployeeService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], EmployeeService);
 exports.EmployeeService = EmployeeService;
-/*
- * In Observable use .subscribe to get data
- *
- * In Promise use .then to get data
- *
- * /
-
-
-
-
-
-//getEmployeeById(code: number): Promise<IEmployee> {
-//    return this._http.get("http://localhost:62288/api/employee/" + code)
-//        .map((response: Response) => <IEmployee>response.json())
-//        .toPromise()
-//        .catch(this.handlePromiseError);
-    
-        
-//}
-
-//handlePromiseError(error: Response) {
-//    console.error(error);
-//    throw(error);
-//}
-
-
-
-
-} 
 //# sourceMappingURL=employee.service.js.map
